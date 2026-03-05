@@ -134,5 +134,23 @@ public class LinkedList {
         }
         return false;
     }
+
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > length) {
+            return false;
+        } else if (index == 0) {
+            prepend(value);
+        } else if (index == length) {
+            append(value);
+        } else {
+            Node temp = get(index - 1);
+            Node newNode = new Node(value);
+            newNode.next = temp.next;
+            temp.next = newNode;
+        }
+        length++;
+        return true;
+    }
+
 }
 

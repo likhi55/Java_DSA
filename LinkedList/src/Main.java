@@ -13,16 +13,20 @@ public class Main {
         linkedList.append(3);
         linkedList.printList();
 
-        linkedList.set(0, 0);
-        linkedList.set(1, 1);
-        linkedList.set(2, 2);
-        System.out.println("After set: ");
+        boolean temp = linkedList.insert(0, 0);
+        System.out.println("Insert or not: " + temp);
         linkedList.printList();
 
-        boolean temp = linkedList.set(3, 0);
-        System.out.println("set or not: " + temp);
+        temp = linkedList.insert(4, 4);
+        System.out.println("Insert or not: " + temp);
+        linkedList.printList();
 
-        temp = linkedList.set(-1, 0);
-        System.out.println("set or not: " + temp);
+        temp = linkedList.insert(-1, -1);
+        System.out.println("Insert or not: " + temp);
+        linkedList.printList();
+
+        temp = linkedList.insert(6, 6);
+        System.out.println("Insert or not: " + temp);
+        linkedList.printList();
     }
 }
