@@ -118,17 +118,21 @@ public class LinkedList {
     }
 
     public Node get(int index) {
-        if (index >= length || index < 0) {
-            return null;
-        }
+        if (index < 0 || index >= length) return null;
         Node temp = head;
-        int x = 0;
-        while (x < index) {
+        for (int i = 0; i < index; i++) {
             temp = temp.next;
-            x++;
         }
         return temp;
     }
 
+    public boolean set(int index, int value) {
+        Node temp = get(index);
+        if (temp != null) {
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
 }
 

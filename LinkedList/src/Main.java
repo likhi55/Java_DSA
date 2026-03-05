@@ -11,18 +11,18 @@ public class Main {
         LinkedList linkedList = new LinkedList(1);
         linkedList.append(2);
         linkedList.append(3);
+        linkedList.printList();
 
-        LinkedList.Node temp = linkedList.get(0);
-        print_node(temp);
+        linkedList.set(0, 0);
+        linkedList.set(1, 1);
+        linkedList.set(2, 2);
+        System.out.println("After set: ");
+        linkedList.printList();
 
-        temp = linkedList.get(3);
-        print_node(temp);
+        boolean temp = linkedList.set(3, 0);
+        System.out.println("set or not: " + temp);
 
-        temp = linkedList.get(-1);
-        print_node(temp);
-
-        temp = linkedList.get(2);
-        print_node(temp);
-
+        temp = linkedList.set(-1, 0);
+        System.out.println("set or not: " + temp);
     }
 }
