@@ -136,21 +136,36 @@ public class LinkedList {
     }
 
     public boolean insert(int index, int value) {
-        if (index < 0 || index > length) {
-            return false;
-        } else if (index == 0) {
+        if (index < 0 || index > length) return false;
+        if (index == 0) {
             prepend(value);
-        } else if (index == length) {
-            append(value);
-        } else {
-            Node temp = get(index - 1);
-            Node newNode = new Node(value);
-            newNode.next = temp.next;
-            temp.next = newNode;
+            return true;
         }
+        if (index == length) {
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node temp = get(index - 1);
+        newNode.next = temp.next;
+        temp.next = newNode;
         length++;
         return true;
     }
 
+    public Node remove(int index) {
+        if (index < 0 || index >= length) return null;
+        if (index == 0) {
+            return removeFirst();
+        }
+        if (index == length - 1) {
+            return removeLast();
+        }
+        Node temp = get(index - 1);
+        Node remove = temp.next;
+        temp.next = remove.next;
+        length--;
+        return remove;
+    }
 }
 
