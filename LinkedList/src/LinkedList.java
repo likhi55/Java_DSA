@@ -155,17 +155,32 @@ public class LinkedList {
 
     public Node remove(int index) {
         if (index < 0 || index >= length) return null;
-        if (index == 0) {
-            return removeFirst();
-        }
-        if (index == length - 1) {
-            return removeLast();
-        }
-        Node temp = get(index - 1);
-        Node remove = temp.next;
-        temp.next = remove.next;
+        if (index == 0) return removeFirst();
+        if (index == length - 1) return removeLast();
+
+        Node prev = get(index - 1);
+        Node temp = prev.next;
+
+        prev.next = temp.next;
+        temp.next = null;
         length--;
-        return remove;
+        return temp;
     }
+
+    public void reverse() {
+        Node temp = head;
+        Node prev = null;
+        tail = temp;
+        Node after;
+
+        for (int i = 0; i < length; i++) {
+            after = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = after;
+        }
+        head = prev;
+    }
+
 }
 

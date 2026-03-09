@@ -13,20 +13,7 @@ public class Main {
         linkedList.append(3);
         linkedList.printList();
 
-        boolean temp = linkedList.insert(0, 0);
-        System.out.println("Insert or not: " + temp);
-        linkedList.printList();
-
-        temp = linkedList.insert(4, 4);
-        System.out.println("Insert or not: " + temp);
-        linkedList.printList();
-
-        temp = linkedList.insert(-1, -1);
-        System.out.println("Insert or not: " + temp);
-        linkedList.printList();
-
-        temp = linkedList.insert(6, 6);
-        System.out.println("Insert or not: " + temp);
+        linkedList.reverse();
         linkedList.printList();
     }
 }
