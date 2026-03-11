@@ -1,4 +1,4 @@
-package Leetcode_Problems;
+package Leetcode_Problems_1;
 
 public class Main {
     public static void main(String[] args) {

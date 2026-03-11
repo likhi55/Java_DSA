@@ -1,11 +1,4 @@
 public class Main {
-    public static void print_node(LinkedList.Node node) {
-        if (node != null) {
-            System.out.println("Node: " + node.value);
-        } else {
-            System.out.println("Node: " + null);
-        }
-    }
 
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList(1);

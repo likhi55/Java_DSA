@@ -1,9 +1,10 @@
-package Leetcode_Problems;
+package Leetcode_Problems_2;
 
 public class LinkedList {
 
     private Node head;
     private Node tail;
+    private int length;
 
     class Node {
         int value;
@@ -18,6 +19,7 @@ public class LinkedList {
         Node newNode = new Node(value);
         head = newNode;
         tail = newNode;
+        length = 1;
     }
 
     public Node getHead() {
@@ -28,70 +30,56 @@ public class LinkedList {
         return tail;
     }
 
-    public void printList() {
-        Node temp = head;
-        while (temp != null) {
-            System.out.println(temp.value);
-            temp = temp.next;
-        }
+    public int getLength() {
+        return length;
     }
 
-    public void printAll() {
+    public void printList() {
         if (head == null) {
-            System.out.println("Head: null");
-            System.out.println("Tail: null");
-        } else {
-            System.out.println("Head: " + head.value);
-            System.out.println("Tail: " + tail.value);
+            System.out.println("List is empty");
+            return;
         }
-        System.out.println("\nLinked List:");
-        if (head == null) {
-            System.out.println("empty");
-        } else {
-            printList();
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.value);
+            if (current.next != null) {
+                System.out.print(" -> ");
+            }
+            current = current.next;
         }
+        System.out.println();
     }
 
     public void makeEmpty() {
         head = null;
         tail = null;
+        length = 0;
     }
 
     public void append(int value) {
         Node newNode = new Node(value);
-        if (head == null) {
+        if (length == 0) {
             head = newNode;
             tail = newNode;
         } else {
             tail.next = newNode;
             tail = newNode;
         }
+        length++;
     }
 
-    public Node findMiddleNode() {
+    public boolean hasLoop() {
         Node slow = head;
         Node fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
         }
-        return slow;
+        return false;
     }
 
-    /*
-    Solution:
-    	public Node findMiddleNode() {
-	    Node slow = head;
-	    Node fast = head;
-
-	    while (fast != null && fast.next != null) {
-		slow = slow.next;
-		fast = fast.next.next;
-	    }
-
-	    return slow;
-	}
-
-     */
 }
 
